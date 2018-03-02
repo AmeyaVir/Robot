@@ -1,1 +1,179 @@
-# Robot
+<?xml version="1.0"?>
+<robot name="robotdragon">
+	 <link name="base">
+	 	<visual>
+			<geometry>
+				<mesh filename="package://robopkg/meshes/base.dae"/>
+			</geometry>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<material name="white">
+				<color rgba="0.8 0.8 0.8 0.8"/>
+			</material>
+		</visual>
+	</link>
+	<link name="connectrod">
+	 	<visual>
+			<geometry>
+				<mesh filename="package://robopkg/meshes/connectingrod1.dae"/>
+			</geometry>
+			<origin xyz="0 6 0" rpy="0 0 0"/>
+			<material name="white">
+				<color rgba="0.8 0.8 0.8 0.8"/>
+			</material>
+		</visual>
+	</link>
+	<link name="link1">
+	 	<visual>
+			<geometry>
+				<mesh filename="package://robopkg/meshes/link1_1.dae"/>
+			</geometry>
+			<origin xyz="4.29412 5.2000 -2.66891" rpy="0 0 0"/>
+			<material name="white">
+				<color rgba="0.8 0.8 0.8 0.8"/>
+			</material>
+		</visual>
+	</link>
+
+	<link name="supplink">
+	 	<visual>
+			<geometry>
+				<mesh filename="package://robopkg/meshes/supplink.dae"/>
+			</geometry>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<material name="white">
+				<color rgba="0.8 0.8 0.8 0.8"/>
+			</material>
+		</visual>
+	</link>
+
+	<link name="link3">
+	 	<visual>
+			<geometry>
+				<mesh filename="package://robopkg/meshes/link3_2.dae"/>
+			</geometry>
+			<origin xyz="-7 3 -12.12" rpy="0 0 0"/>
+			<material name="white">
+				<color rgba="0.8 0.8 0.8 0.8"/>
+			</material>
+		</visual>
+	</link>
+
+	<link name="auxlink">
+	 	<visual>
+			<geometry>
+				<mesh filename="package://robopkg/meshes/auxlink.dae"/>
+			</geometry>
+			<origin xyz="1.89664 0.300 -1.49095" rpy="0 0 0"/>
+			<material name="white">
+				<color rgba="0.8 0.8 0.8 0.8"/>
+			</material>
+		</visual>
+	</link>
+
+	<link name="trilink">
+	 	<visual>
+			<geometry>
+				<mesh filename="package://robopkg/meshes/trilink.dae"/>
+			</geometry>
+			<origin xyz="-7.02894 1.05 -12.12321" rpy="0 0 0"/>
+			<material name="white">
+				<color rgba="0.8 0.8 0.8 0.8"/>
+			</material>
+		</visual>
+	</link>
+
+	<link name="endeff">
+	 	<visual>
+			<geometry>
+				<mesh filename="package://robopkg/meshes/endeff.dae"/>
+			</geometry>
+			<origin xyz="-19.91586 3.000 -4.10216" rpy="0 0 0"/>
+			<material name="white">
+				<color rgba="0.8 0.8 0.8 0.8"/>
+			</material>
+		</visual>
+	</link>
+
+	<link name="external">
+	 	<visual>
+			<geometry>
+				<mesh filename="package://robopkg/meshes/external.dae"/>
+			</geometry>
+			<origin xyz="-22.53965 0.5500 -6.11641" rpy="0 0 0"/>
+			<material name="white">
+				<color rgba="0.8 0.8 0.8 0.8"/>
+			</material>
+		</visual>
+	</link>
+
+
+	<joint type="revolute" name="base_connect" >
+    		<axis xyz="0 1 0"/>
+    		<limit effort="1000.0" lower="-3" upper="3" velocity="0.5"/>
+    		<origin rpy="0 0 0" xyz="0 -6 0"/>
+    		<parent link="base"/>
+    		<child link="connectrod"/>
+ 	</joint>
+
+	<joint type="revolute" name="connect_link1" >
+    		<axis xyz="0 1 0"/>
+    		<limit effort="1000.0" lower="-3" upper="3" velocity="0.5"/>
+    		<origin rpy="0 0 0" xyz="-4.29412 0.8 2.66891"/>
+    		<parent link="connectrod"/>
+    		<child link="link1"/>
+ 	</joint>
+
+
+	<joint type="revolute" name="base_supplink" >
+    		<axis xyz="0 1 0"/>
+    		<limit effort="1000.0" lower="-3" upper="3" velocity="0.5"/>
+    		<origin rpy="0 0 0" xyz="0 0 0"/>
+    		<parent link="base"/>
+    		<child link="supplink"/>
+ 	</joint>
+
+	<joint type="revolute" name="supplink_link3" >
+    		<axis xyz="0 1 0"/>
+    		<limit effort="1000.0" lower="-3" upper="3" velocity="0.5"/>
+    		<origin rpy="0 0 0" xyz="7 -3 12.12"/>
+    		<parent link="supplink"/>
+    		<child link="link3"/>
+ 	</joint>
+	
+	<joint type="revolute" name="base_auxlink" >
+    		<axis xyz="0 1 0"/>
+    		<limit effort="1000.0" lower="-3" upper="3" velocity="0.5"/>
+    		<origin rpy="0 0 0" xyz="-1.89664 -0.300 1.49095"/>
+    		<parent link="base"/>
+    		<child link="auxlink"/>
+ 	</joint>
+
+
+	<joint type="revolute" name="supplink_trilink" >
+    		<axis xyz="0 1 0"/>
+    		<limit effort="1000.0" lower="-3" upper="3" velocity="0.5"/>
+    		<origin xyz="7.02894 -1.05 12.12321" rpy="0 0 0" />
+    		<parent link="supplink"/>
+    		<child link="trilink"/>
+ 	</joint>
+
+	<joint type="revolute" name="link3_endeff" >
+    		<axis xyz="0 1 0" />
+    		<limit effort="1000.0" lower="-3" upper="3" velocity="0.5"/>
+    		<origin xyz="12.91201 0 -8.01997" rpy="0 0 0"/>
+    		<parent link="link3"/>
+    		<child link="endeff"/>
+ 	</joint>
+
+	<joint type="revolute" name="endeff_external" >
+    		<axis xyz="0 1 0" />
+    		<limit effort="1000.0" lower="-3" upper="3" velocity="0.5"/>
+    		<origin xyz="2.62379 2.45 2.01425" rpy="0 0 0"/>
+    		<parent link="endeff"/>
+    		<child link="external"/>
+ 	</joint>
+</robot>
+	
+
+
+
