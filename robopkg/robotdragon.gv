@@ -1,0 +1,29 @@
+digraph G {
+node [shape=box];
+"base_rot" [label="base_rot"];
+"add_3" [label="add_3"];
+"link_1" [label="link_1"];
+"add_1" [label="add_1"];
+"link_2" [label="link_2"];
+"add_4" [label="add_4"];
+"add_5" [label="add_5"];
+"link_3" [label="link_3"];
+"add_2" [label="add_2"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base_rot" -> "base_rot_to_add_3" [label="xyz: -1.89664 -0.3 1.49095 \nrpy: 0 -0 0"]
+"base_rot_to_add_3" -> "add_3"
+"base_rot" -> "base_rot_to_link_1" [label="xyz: 0 -3 0 \nrpy: 0 -0 0"]
+"base_rot_to_link_1" -> "link_1"
+"link_1" -> "link_1_to_add_1" [label="xyz: 0 -3 0 \nrpy: 0 -0 0"]
+"link_1_to_add_1" -> "add_1"
+"link_1" -> "link_1_to_link_2" [label="xyz: 14 0 0 \nrpy: 0 -0 0"]
+"link_1_to_link_2" -> "link_2"
+"link_2" -> "link_2_to_add_4" [label="xyz: 0 1.95 0 \nrpy: 0 -0 0"]
+"link_2_to_add_4" -> "add_4"
+"link_2" -> "link_2_to_add_5" [label="xyz: -5.09993 0 -0.0276 \nrpy: 0 -0 0"]
+"link_2_to_add_5" -> "add_5"
+"link_2" -> "link_2_to_link_3" [label="xyz: 15.1998 0 0.0821 \nrpy: 0 -0 0"]
+"link_2_to_link_3" -> "link_3"
+"link_3" -> "link_3_to_add_2" [label="xyz: 2.62379 2.45 2.01425 \nrpy: 0 -0 0"]
+"link_3_to_add_2" -> "add_2"
+}

@@ -1,0 +1,12 @@
+import numpy.matlib 
+import numpy as np
+import math
+vector1=np.array([4.33548,-1.05,14.0273])
+vector2=np.array([8.16305,-1.05,15.18909])
+v=vector1-vector2
+vectorz=np.array([0,0,1])
+vdot=np.dot(v,vectorz)
+mag = np.sqrt(v.dot(v))
+res=vdot/mag
+theta=math.acos(res)
+print(theta*180/math.pi)

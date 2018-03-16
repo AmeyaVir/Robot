@@ -1,0 +1,199 @@
+<?xml version="1.0"?>
+<robot name="robotdragon">
+	 <link name="base_orig">
+	 	<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+		</visual>
+	 </link>
+	 <link name="base">
+	 	<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+		</visual>
+	 </link>	 	 	
+	 <link name="base_rot">
+	 	<visual>
+			<geometry>
+				<mesh filename="package://robopkg/meshes/base.dae"/>
+			</geometry>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<material name="white">
+				<color rgba="0.8 0.8 0.8 0.8"/>
+			</material>
+		</visual>
+	</link>
+	<link name="add_1">
+	 	<visual>
+			<geometry>
+				<mesh filename="package://robopkg/meshes/add_1.dae"/>
+			</geometry>
+			<origin xyz="0 6 0" rpy="0 0 0"/>
+			<material name="white">
+				<color rgba="0.8 0.8 0.8 0.8"/>
+			</material>
+		</visual>
+	</link>
+	<link name="add_5">
+	 	<visual>
+			<geometry>
+				<mesh filename="package://robopkg/meshes/add_5.dae"/>
+			</geometry>
+			<origin xyz="1.16118 3.05 -14.5062" rpy="0 0 0"/>
+			<material name="white">
+				<color rgba="0.8 0.8 0.8 0.8"/>
+			</material>
+		</visual>
+	</link>
+
+	<link name="link_1">
+	 	<visual>
+			<geometry>
+				<mesh filename="package://robopkg/meshes/link_1.dae"/>
+			</geometry>
+			<origin xyz="0 3 0" rpy="0 0 0"/>
+			<material name="white">
+				<color rgba="0.8 0.8 0.8 0.8"/>
+			</material>
+		</visual>
+	</link>
+
+	<link name="link_2">
+	 	<visual>
+			<geometry>
+				<mesh filename="package://robopkg/meshes/link_2(new).dae"/>
+			</geometry>
+			<origin xyz="-7.00385 3.0 -12.1221" rpy="0 0 0"/>
+			<material name="white">
+				<color rgba="0.8 0.8 0.8 0.8"/>
+			</material>
+		</visual>
+	</link>
+
+	<link name="add_3">
+	 	<visual>
+			<geometry>
+				<mesh filename="package://robopkg/meshes/add_3.dae"/>
+			</geometry>
+			<origin xyz="1.89664 0.300 -1.49095" rpy="0 0 0"/>
+			<material name="white">
+				<color rgba="0.8 0.8 0.8 0.8"/>
+			</material>
+		</visual>
+	</link>
+
+	<link name="add_4">
+	 	<visual>
+			<geometry>
+				<mesh filename="package://robopkg/meshes/add_4.dae"/>
+			</geometry>
+			<origin xyz="-6.97 1.05 -12.12419" rpy="0 0 0"/>
+			<material name="white">
+				<color rgba="0.8 0.8 0.8 0.8"/>
+			</material>
+		</visual>
+	</link>
+
+	<link name="link_3">
+	 	<visual>
+			<geometry>
+				<mesh filename="package://robopkg/meshes/link_3.dae"/>
+			</geometry>
+			<origin xyz="-19.9159 2.93750 -4.10216" rpy="0 0 0"/>
+			<material name="white">
+				<color rgba="0.8 0.8 0.8 0.8"/>
+			</material>
+		</visual>
+	</link>
+
+	<link name="add_2">
+	 	<visual>
+			<geometry>
+				<mesh filename="package://robopkg/meshes/add_2.dae"/>
+			</geometry>
+			<origin xyz="-22.53965 0.5500 -6.11641" rpy="0 0 0"/>
+			<material name="white">
+				<color rgba="0.8 0.8 0.8 0.8"/>
+			</material>
+		</visual>
+	</link>
+
+	<joint type="revolute" name="base_rot_to_add_3" >
+    		<axis xyz="0 1 0"/>
+    		<limit effort="1000.0" lower="-3" upper="3" velocity="0.5"/>
+    		<origin rpy="0 0 0" xyz="-1.89664 -0.300 1.49095"/>
+    		<parent link="base_rot"/>
+    		<child link="add_3"/>
+ 	</joint>
+
+	<joint type="revolute" name="base_rot_to_link_1" >
+    		<axis xyz="0 1 0"/>
+    		<limit effort="1000.0" lower="-3" upper="3" velocity="0.5"/>
+    		<origin rpy="0 0 0" xyz="0 -3 0"/>
+    		<parent link="base_rot"/>
+    		<child link="link_1"/>
+ 	</joint>
+
+	<joint type="revolute" name="link_1_to_add_1" >
+    		<axis xyz="0 1 0"/>
+    		<limit effort="1000.0" lower="-3" upper="3" velocity="0.5"/>
+    		<origin rpy="0 0 0" xyz="0 -3 0"/>
+    		<parent link="link_1"/>
+    		<child link="add_1"/>
+ 	</joint>
+
+	<joint type="revolute" name="link_1_to_link_2" >
+    		<axis xyz="0 1 0"/>
+    		<limit effort="1000.0" lower="-3" upper="3" velocity="0.5"/>
+    		<origin rpy="0 0 0" xyz="14 0 0"/>
+    		<parent link="link_1"/>
+    		<child link="link_2"/>
+ 	</joint>
+
+	<joint type="revolute" name="link_2_to_add_5" >
+    		<axis xyz="0 1 0"/>
+    		<limit effort="1000.0" lower="-3" upper="3" velocity="0.5"/>
+    		<origin rpy="0 0 0" xyz="-5.099932 0 -0.0276"/>
+    		<parent link="link_2"/>
+    		<child link="add_5"/>
+ 	</joint>
+
+	<joint type="revolute" name="link_2_to_add_4" >
+    		<axis xyz="0 1 0"/>
+    		<limit effort="1000.0" lower="-3" upper="3" velocity="0.5"/>
+    		<origin xyz="0 1.95 0" rpy="0 0 0" />
+    		<parent link="link_2"/>
+    		<child link="add_4"/>
+ 	</joint>
+
+
+	<joint type="revolute" name="link_2_to_link_3" >
+    		<axis xyz="0 1 0" />
+    		<limit effort="1000.0" lower="-3" upper="3" velocity="0.5"/>
+    		<origin xyz="15.199798 0.0 0.0821 " rpy="0 0 0"/>
+    		<parent link="link_2"/>
+    		<child link="link_3"/>
+ 	</joint>
+
+	<joint type="revolute" name="link_3_to_add_2" >
+    		<axis xyz="0 1 0" />
+    		<limit effort="1000.0" lower="-3" upper="3" velocity="0.5"/>
+    		<origin xyz="2.62379 2.45 2.01425" rpy="0 0 0"/>
+    		<parent link="link_3"/>
+    		<child link="add_2"/>
+ 	</joint>
+	<joint type="fixed" name="base_orig_to_base_rot">
+		<origin xyz="1.31324 3.01791 3.00279"/>
+		<parent link="base"/>
+    		<child link="base_rot"/>
+	</joint>
+	<joint type="revolute" name="base_to_base_orig">
+		<origin xyz="0 0 0"/>
+		<parent link="base_orig"/>
+    		<child link="base"/>
+		<limit effort="1000.0" lower="-3" upper="3" velocity="0.5"/>
+		<axis xyz="0 0 1"/>
+	</joint>
+</robot>
+	
+
+
+

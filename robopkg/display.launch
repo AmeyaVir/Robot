@@ -1,0 +1,17 @@
+<launch>
+
+	<arg name="gui" default="true" />
+  	<arg name="rvizconfig" default="$(find urdf_tutorial)/rviz/urdf.rviz" />
+  	
+	<param name="robot_description" command="cat $(find robopkg)/modelupd.urdf" />
+  	<param name="servo_1" type="double" value="0"/>
+  	<param name="servo_2" type="double" value="30"/>
+  	<param name="servo_3" type="double" value="30"/>
+	<param name="servo_4" type="double" value="0"/>
+
+   	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+   	<node name="read_angles" pkg="robopkg" type="report_angles_node.py" output= "screen" />
+   	<node name="state_publisher" pkg="robopkg" type="visual_display.py" output = "screen" />
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+
+</launch>
